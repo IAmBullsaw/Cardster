@@ -5,23 +5,23 @@
 
 class Window {
 public:
-	Window(int SCREEN_WIDTH, int SCREEN_HEIGHT, int SCREEN_FPS);
+	Window(unsigned screen_width, unsigned screen_height, unsigned screen_fps);
 	~Window();
-	int get_width() const;
-	int get_height() const;
+	unsigned get_width() const;
+	unsigned get_height() const;
 	SDL_Renderer* get_renderer() const;
-	int get_ticks_per_frame() const;
+	unsigned get_ticks_per_frame() const;
 	void start_frame();
 	void end_frame();
 
 private:
-	const int SCREEN_WIDTH;
-	const int SCREEN_HEIGHT;
-	const int SCREEN_FPS;
-	const int TICKS_PER_FRAME;
+	const unsigned screen_width;
+	const unsigned screen_height;
+	const unsigned screen_fps;
+	const unsigned ticks_per_frame;
 
-	Uint32 current_time;
-	Uint32 last_time;
+	unsigned current_time;
+	unsigned last_time;
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;

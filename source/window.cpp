@@ -4,14 +4,15 @@
 using namespace std;
 
 /**
- * \param SCREEN_WIDTH_IN Screen width.
- * \param SCREEN_HEIGHT_IN Screen height.
- * \param SCREEN_FPS Desired frames per second.
+ * \param screen_width_in Screen width.
+ * \param screen_height_in Screen height.
+ * \param screen_fps Desired frames per second.
  */
-Window::Window(int SCREEN_WIDTH_IN, int SCREEN_HEIGHT_IN, int SCREEN_FPS) :
-		SCREEN_WIDTH { SCREEN_WIDTH_IN }, SCREEN_HEIGHT { SCREEN_HEIGHT_IN }, SCREEN_FPS {
-				SCREEN_FPS }, TICKS_PER_FRAME { 1000 / SCREEN_FPS }, last_time {
-				0 } {
+Window::Window(unsigned screen_width, unsigned screen_height, unsigned screen_fps) :
+		screen_width{screen_width}, screen_height{screen_height},
+    screen_fps{screen_fps}, ticks_per_frame{1000/screen_fps},
+    last_time{0}
+{
 
 	// initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO /*|SDL_INIT_AUDIO*/) != 0) {
@@ -20,16 +21,16 @@ Window::Window(int SCREEN_WIDTH_IN, int SCREEN_HEIGHT_IN, int SCREEN_FPS) :
 	}
 
 	// create the window
-	window = SDL_CreateWindow("SokobanII",
-	SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
-			SCREEN_HEIGHT, SDL_WINDOW_RESIZABLE);
+	window = SDL_CreateWindow("Cardster",
+	SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width,
+			screen_height, SDL_WINDOW_RESIZABLE);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
 	// make the scaled rendering look smoother
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "best");
 
 	// render at a virtual resolution then stretch to actual resolution
-	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+	SDL_RenderSetLogicalSize(renderer, screen_width, screen_height);
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	SDL_GL_SetSwapInterval(-1);
 	SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
@@ -45,20 +46,20 @@ Window::~Window() {
 	SDL_Quit();
 }
 
-int Window::get_width() const {
-	return SCREEN_WIDTH;
+unsigned Window::get_width() const {
+	return screen_width;
 }
 
-int Window::get_height() const {
-	return SCREEN_HEIGHT;
+unsigned Window::get_height() const {
+	return screen_height;
 }
 
 SDL_Renderer* Window::get_renderer() const {
 	return renderer;
 }
 
-int Window::get_ticks_per_frame() const {
-	return TICKS_PER_FRAME;
+unsigned Window::get_ticks_per_frame() const {
+	return ticks_per_frame;
 }
 
 /**
@@ -75,8 +76,8 @@ void Window::start_frame() {
 void Window::end_frame() {
 	SDL_RenderPresent(renderer);
 
-	if ((current_time - last_time) < TICKS_PER_FRAME) {
-		SDL_Delay(TICKS_PER_FRAME - (current_time - last_time));
+	if ((current_time - last_time) < ticks_per_frame) {
+		SDL_Delay(ticks_per_frame - (current_time - last_time));
 	}
 
 	last_time = current_time;

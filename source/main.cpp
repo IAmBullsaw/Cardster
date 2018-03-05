@@ -2,5 +2,5 @@
 #include "window.h"
 int main() {
   std::puts("Welcome to main()\n");
-  Window w{};
+  Window w{200,200,30};
 }
