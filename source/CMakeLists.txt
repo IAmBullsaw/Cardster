@@ -3,4 +3,9 @@ set(src
 )
 add_executable(${PROJECT_NAME} main.cpp ${src})
 message(STATUS "Found SDL2 library: ${SDL2_LIBRARIES}")
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
+
+# This strip is done since the variable contains a
+# trailing whitespace by default for some idiotic reason
+#
+string(STRIP ${SDL2_LIBRARIES} SDL2_stripped)
+target_link_libraries(${PROJECT_NAME} ${SDL2_stripped})
