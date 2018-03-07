@@ -3,7 +3,7 @@ A flash card based learning system.
 
 ## Build instructions
 ### Prerequesites
-|   thing    |source                |tests                 |documentation
+|            |source                |tests                 |documentation
 |------------|:--------------------:|:--------------------:|:--------------------:|
 |make        |:heavy_check_mark:    |:heavy_check_mark:    |                      |
 |cmake 3.9.6 |:heavy_check_mark:    |:heavy_check_mark:    |                      |
