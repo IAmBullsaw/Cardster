@@ -26,7 +26,7 @@ if (GTEST_FOUND)
   enable_testing()
   include_directories(${GTEST_INCLUDE_DIRS})
 
-  add_executable(tests main.cpp)
+  add_executable(tests main.cpp test_person.cpp person.cpp)
   target_link_libraries(tests ${GTEST_BOTH_LIBRARIES})
   add_test(NAME AllTestsInMain COMMAND tests)
 
