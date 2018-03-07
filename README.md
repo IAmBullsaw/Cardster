@@ -3,10 +3,15 @@ A flash card based learning system.
 
 ## Build instructions
 ### Prerequesites
-* make
-* cmake 3.9.6
-* clang++-4.0
-* SDL2
+|   thing    |source                |tests                 |documentation
+|------------|:--------------------:|:--------------------:|:--------------------:|
+|make        |:heavy_check_mark:    |:heavy_check_mark:    |                      |
+|cmake 3.9.6 |:heavy_check_mark:    |:heavy_check_mark:    |                      |
+|clang++-4.0 |:heavy_check_mark:    |:heavy_check_mark:    |                      |
+|SDL2        |:heavy_check_mark:    |:heavy_check_mark:    |                      |
+|GTest 1.8.0 |                      |:heavy_check_mark:    |                      | 
+|Doxygen     |                      |                      |:heavy_check_mark:    |
+
 ### Instructions
 To build run the following commands
 ```bash
