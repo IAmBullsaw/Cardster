@@ -11,7 +11,13 @@ project (Cardster)
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
+# The thing
+#
 add_subdirectory (source)
+
+# Unit tests
+#
+add_subdirectory (tests)
 
 # Doxygen
 #
