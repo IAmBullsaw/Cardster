@@ -15,6 +15,8 @@ Currently setting up the project.
 |GTest 1.8.0 |                      |:heavy_check_mark:    |                      | 
 |Doxygen     |                      |                      |:heavy_check_mark:    |
 
+*notes: to download GTest via make one needs curl with https, so ./bootstrap cmake with --system-curl*
+
 ### Instructions
 To build run the following commands
 ```bash
