@@ -1,6 +1,9 @@
 # Cardster
 A flash card based learning system.
 
+# Status
+Currently setting up the project.
+
 ## Build instructions
 ### Prerequesites
 |            |source                |tests                 |documentation
@@ -21,6 +24,14 @@ user@machine:~/Code/Cardster$ mkdir build
 user@machine:~/Code/Cardster$ cd build
 user@machine:~/Code/Cardster/build$ cmake ..
 ```
+
+Currently the default options are:
+```
+BUILD_SOURCE = ON
+BUILD_TESTS = ON
+BUILD_DOC = ON
+```
+
 ## Documentation
 The documentation is generated via Doxygen.   
 Run this command to generate them:
