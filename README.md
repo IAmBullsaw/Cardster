@@ -26,7 +26,12 @@ user@machine:~/Code/Cardster$ mkdir build
 user@machine:~/Code/Cardster$ cd build
 user@machine:~/Code/Cardster/build$ cmake ..
 ```
-
+And to build tests now run
+```bash
+user@machine:~/Code/Cardster/build$ make GTest
+user@machine:~/Code/Cardster/build$ cmake ..
+user@machine:~/Code/Cardster/build$ make tests
+```
 Currently the default options are:
 ```
 BUILD_SOURCE = ON
