@@ -38,6 +38,7 @@ before_install:
   - ls -laF
   # SDL2 pls
   - find / -iname Find*.cmake 2>/dev/null | grep SDL
+  - find / -iname *config.cmake 2>/dev/null | grep SDL
 
 script:
   # The makening
