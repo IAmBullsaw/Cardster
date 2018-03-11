@@ -35,9 +35,9 @@ before_install:
       export PATH=${DEPS_DIR}/cmake/bin:${PATH}
     fi
   - cmake --version
-
+  - ls -laF
   # SDL2 pls
-  - find / -iname SDL2*.cmake
+  - find / -iname Find*.cmake 2>/dev/null | grep SDL
 
 script:
   # The makening
