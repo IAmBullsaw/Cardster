@@ -3,7 +3,7 @@ language: cpp
 
 # Ubuntu 14.04 Trusty support
 # Is this really needed?
-#sudo: required
+sudo: required
 dist: trusty
 
 # Compiler selection
