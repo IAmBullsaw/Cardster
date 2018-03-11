@@ -34,15 +34,19 @@ before_install:
       export PATH=${DEPS_DIR}/cmake/bin:${PATH}
     fi
   - cmake --version
+  # Get SDL2
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       SDL2_URL="https://libsdl.org/release/SDL2-2.0.8.tar.gz"
       mkdir SDL2 && travis_retry wget --no-check-certificate --quiet -O - ${SDL2_URL} | tar --strip-components=1 -xz -C SDL2 && cd SDL2 && ./configure && make && sudo make install && cd ..
     fi
+  # Get Doxygen
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      DOXYGEN_URL="http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.src.tar.gz"
+      mkdir Doxygen && travis_retry wget --no-check-certificate --quiet -O - ${DOXYGEN_URL} | tar --strip-components=1 -xz -C Doxygen && cd Doxygen && mkdir build && cd build && cmake -G "Unix Makefiles" .. && make && ./configure && sudo make install && cd ../..
+    fi
 
-  # SDL2 pls
-  - find / -iname Find*.cmake 2>/dev/null | grep SDL
-  - find / -iname *config.cmake 2>/dev/null | grep SDL
 
 script:
   # The makening
