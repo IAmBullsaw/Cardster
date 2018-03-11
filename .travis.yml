@@ -2,7 +2,8 @@
 language: cpp
 
 # Ubuntu 14.04 Trusty support
-sudo: required
+# Is this really needed?
+#sudo: required
 dist: trusty
 
 # Compiler selection
@@ -34,10 +35,9 @@ script:
     fi
   - cmake --version
 
-  # Leave /deps
-  - cd ${TRAVIS_BUILD_DIR}
 
-  # The easy part
+  # The makening
+  - cd ${TRAVIS_BUILD_DIR}
   - mkdir build
   - cd build
   - cmake ..
