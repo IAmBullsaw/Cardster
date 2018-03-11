@@ -18,10 +18,10 @@ matrix:
             - llvm-toolchain-trusty
           packages:
             - clang-4.0
-      env: COMPILER=clang++-4.0
+            - libsdl2-dev
+          env: COMPILER=clang++-4.0
 
-# Build steps
-script:
+before_install:
   # All dependencies goes here
   - DEPS_DIR="${HOME}/deps"
   - mkdir -p ${DEPS_DIR} && cd ${DEPS_DIR}
@@ -35,7 +35,9 @@ script:
     fi
   - cmake --version
 
+  # SDL2 pls
 
+script:
   # The makening
   - cd ${TRAVIS_BUILD_DIR}
   - mkdir build
