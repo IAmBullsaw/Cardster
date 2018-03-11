@@ -14,8 +14,10 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
             - llvm-toolchain-trusty-4.0
+            - llvm-toolchain-trusty
           packages:
-            -clang-4.0
+            - clang-4.0
+      env: COMPILER=clang++-4.0
 
 # Build steps
 script:
