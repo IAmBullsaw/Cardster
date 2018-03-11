@@ -18,6 +18,7 @@ matrix:
             - llvm-toolchain-trusty
           packages:
             - clang-4.0
+            - libsdl2-2.0
             - libsdl2-dev
           env: COMPILER=clang++-4.0
 
@@ -36,8 +37,7 @@ before_install:
   - cmake --version
 
   # SDL2 pls
-  - cd cmake/Modules
-  - ls -laF
+  - find / -iname SDL2*.cmake
 
 script:
   # The makening
