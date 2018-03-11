@@ -35,13 +35,9 @@ script:
   - cmake --version
 
   # Leave /deps
-  - pwd && ls -laF
-  - cd ..
-  - pwd && ls -laF
-  - cd
-  - pwd && ls -laF
+  - cd ${TRAVIS_BUILD_DIR}
 
-  # the easy part
+  # The easy part
   - mkdir build
   - cd build
   - cmake ..
