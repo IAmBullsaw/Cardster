@@ -1,9 +1,21 @@
 # Enable C++
 language: cpp
+
+# Ubuntu 14.04 Trusty support
+dist: trusty
+
 # Compiler selection
-compiler:
-  - clang
-  - gcc
+matrix:
+  include:
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-pracise-4.0
+          packages:
+            -clang-4.0
+
 # Build steps
 script:
   - mkdir build
