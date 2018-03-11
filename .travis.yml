@@ -38,6 +38,8 @@ script:
   - pwd && ls -laF
   - cd ..
   - pwd && ls -laF
+  - cd
+  - pwd && ls -laF
 
   # the easy part
   - mkdir build
