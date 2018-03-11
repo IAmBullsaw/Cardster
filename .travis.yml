@@ -36,6 +36,8 @@ before_install:
   - cmake --version
 
   # SDL2 pls
+  - cd cmake/Modules
+  - ls -laF
 
 script:
   # The makening
