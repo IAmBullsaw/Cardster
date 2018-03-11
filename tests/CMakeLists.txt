@@ -4,7 +4,7 @@ set(GTest_md5 "4577b49f2973c90bf9ba69aa8166b786")
 set(GTest_BUILD_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/build")
 set(GTest_BUILD_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/install")
 set(GTest_DOWNLOAD_DIR "${CMAKE_CURRENT_BINARY_DIR}/../downloads")
-message(INFO "DOWNLOAD DIR = ${CMAKE_CURRENT_BINARY_DIR}/../downloads")
+message(STATUS "GTest DOWNLOAD DIR = ${CMAKE_CURRENT_BINARY_DIR}/../downloads")
 
 include(ExternalProject)
 ExternalProject_Add(GTest
