@@ -9,3 +9,12 @@ message(STATUS "Found SDL2 library: ${SDL2_LIBRARIES}")
 #
 string(STRIP ${SDL2_LIBRARIES} SDL2_stripped)
 target_link_libraries(${PROJECT_NAME} ${SDL2_stripped})
+
+if (BUILD_TESTS)
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+if (COVERAGE)
+  target_compile_options(${PROJECT_NAME} PRIVATE -fprofile-instr-generate -fcoverage-mapping -g -O0)
+  target_link_libraries(${PROJECT_NAME} -fprofile-instr-generate -fcoverage-mapping -g -O0)
+endif()
