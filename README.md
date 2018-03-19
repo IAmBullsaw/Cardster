@@ -1,7 +1,7 @@
 # Cardster
 A flash card based learning system.
 
-# Status
+# Status [![Build Status](https://travis-ci.org/IAmBullsaw/Cardster.svg?branch=master)](https://travis-ci.org/IAmBullsaw/Cardster)
 Currently setting up the project.
 
 ## Build instructions
