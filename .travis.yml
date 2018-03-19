@@ -54,6 +54,10 @@ script:
   - mkdir build
   - cd build
   - cmake ..
+  - make
+  - cmake -DBUILD_TESTS=ON ..
   - make GTest
-  - cmake ..
+  - cmake -DBUILD_TESTS=ON ..
+  - make
+  - cmake -DBUILD_TESTS=ON -DCOVERAGE=ON ..
   - make
