@@ -2,7 +2,11 @@
 #define WINDOW_H
 
 #include <SDL2/SDL.h>
-
+/*!
+ *
+ * \brief Window is a container for each new window.
+ *
+ */
 class Window {
 public:
 	Window(unsigned screen_width, unsigned screen_height, unsigned screen_fps);
