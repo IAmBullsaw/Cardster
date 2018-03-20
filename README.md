@@ -40,8 +40,9 @@ This downloads and installs GTest, then `cmake ..` will update accordingly.
 Currently the default options are:
 ```
 BUILD_SOURCE = ON
-BUILD_TESTS = ON
 BUILD_DOC = ON
+BUILD_TESTS = OFF
+COVERAGE = OFF
 ```
 
 #### Usage
