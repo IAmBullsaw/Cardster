@@ -6,6 +6,7 @@ set(GTest_BUILD_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/install")
 set(GTest_DOWNLOAD_DIR "${CMAKE_CURRENT_BINARY_DIR}/../downloads")
 message(STATUS "GTest DOWNLOAD DIR = ${CMAKE_CURRENT_BINARY_DIR}/../downloads")
 
+# Installing GTest
 include(ExternalProject)
 ExternalProject_Add(GTest
   URL ${GTest_url}
@@ -21,14 +22,21 @@ ExternalProject_Add(GTest
 set(GTEST_ROOT ${GTest_BUILD_INSTALL_PREFIX} CACHE STRING "")
 message(STATUS "GTEST_ROOT = ${GTEST_ROOT}")
 
+# Tests
+set(TEST_ALL tests)
 find_package(GTest)
 if (GTEST_FOUND)
   enable_testing()
   include_directories(${GTEST_INCLUDE_DIRS})
 
-  add_executable(tests main.cpp test_person.cpp person.cpp)
-  target_link_libraries(tests ${GTEST_BOTH_LIBRARIES})
-  add_test(NAME AllTestsInMain COMMAND tests)
+  add_executable(${TEST_ALL} main.cpp test_person.cpp person.cpp)
+  target_link_libraries(${TEST_ALL} ${GTEST_BOTH_LIBRARIES})
+  add_test(NAME AllTestsInMain COMMAND ${TEST_ALL})
+
+  if (COVERAGE)
+    target_compile_options(${TEST_ALL} PRIVATE -fprofile-instr-generate -fcoverage-mapping -g -O0)
+    target_link_libraries(${TEST_ALL} -fprofile-instr-generate -fcoverage-mapping -g -O0)
+  endif()
 
 else (GTEST_FOUND)
   message(WARNING "Gtest not found.\nRun make to install GTest.\nRerun cmake to finish test install.")
