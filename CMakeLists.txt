@@ -4,6 +4,8 @@ set(CMAKE_CXX_COMPILER clang++-4.0)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
 project (Cardster)
+set(CARDSTER_TEST_DIR ${CMAKE_SOURCE_DIR}/tests)
+set(CARDSTER_SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 
 # SDL2
 #
