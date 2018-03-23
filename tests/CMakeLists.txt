@@ -23,19 +23,19 @@ set(GTEST_ROOT ${GTest_BUILD_INSTALL_PREFIX} CACHE STRING "")
 message(STATUS "GTEST_ROOT = ${GTEST_ROOT}")
 
 # Tests
-set(TEST_ALL tests)
 find_package(GTest)
 if (GTEST_FOUND)
   enable_testing()
   include_directories(${GTEST_INCLUDE_DIRS})
+  string(STRIP ${SDL2_LIBRARIES} SDL2_stripped)
 
-  add_executable(${TEST_ALL} main.cpp test_person.cpp person.cpp)
-  target_link_libraries(${TEST_ALL} ${GTEST_BOTH_LIBRARIES})
-  add_test(NAME AllTestsInMain COMMAND ${TEST_ALL})
+  add_executable(test_window main.cpp ${CARDSTER_SRC_DIR}/window.cpp ${CARDSTER_TEST_DIR}/test_window.cpp)
+  target_link_libraries(test_window ${GTEST_BOTH_LIBRARIES} ${SDL2_stripped})
+  add_test(NAME testWindow COMMAND test_window})
 
   if (COVERAGE)
-    target_compile_options(${TEST_ALL} PRIVATE -fprofile-instr-generate -fcoverage-mapping -g -O0)
-    target_link_libraries(${TEST_ALL} -fprofile-instr-generate -fcoverage-mapping -g -O0)
+    target_compile_options(test_window PRIVATE -fprofile-instr-generate -fcoverage-mapping -g -O0)
+    target_link_libraries(test_window -fprofile-instr-generate -fcoverage-mapping -g -O0)
   endif()
 
 else (GTEST_FOUND)
