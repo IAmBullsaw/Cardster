@@ -20,7 +20,7 @@ option(BUILD_TESTS "Build tests via GTest" OFF)
 # The thing
 #
 if (BUILD_SOURCE)
-  add_subdirectory (source)
+  add_subdirectory (src)
 endif()
 
 # Unit tests GTest
