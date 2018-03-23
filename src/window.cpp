@@ -1,4 +1,4 @@
-#include "window.h"
+#include "window.hpp"
 #include <iostream>
 
 using namespace std;
@@ -8,7 +8,7 @@ using namespace std;
  * \param screen_height_in Screen height.
  * \param screen_fps Desired frames per second.
  */
-Window::Window(unsigned screen_width, unsigned screen_height, unsigned screen_fps) :
+Window::Window(int screen_width, int screen_height, int screen_fps) :
 		screen_width{screen_width}, screen_height{screen_height},
     screen_fps{screen_fps}, ticks_per_frame{1000/screen_fps},
     last_time{0}
@@ -46,11 +46,11 @@ Window::~Window() {
 	SDL_Quit();
 }
 
-unsigned Window::get_width() const {
+int Window::get_width() const {
 	return screen_width;
 }
 
-unsigned Window::get_height() const {
+int Window::get_height() const {
 	return screen_height;
 }
 
@@ -58,7 +58,7 @@ SDL_Renderer* Window::get_renderer() const {
 	return renderer;
 }
 
-unsigned Window::get_ticks_per_frame() const {
+int Window::get_ticks_per_frame() const {
 	return ticks_per_frame;
 }
 
