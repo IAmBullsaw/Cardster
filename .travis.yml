@@ -61,3 +61,7 @@ script:
   - make
   - cmake -DBUILD_TESTS=ON -DCOVERAGE=ON ..
   - make
+
+after_success:
+  - cd ../tests
+  - coveralls --gcov-options '\-lp'
