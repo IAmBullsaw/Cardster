@@ -19,6 +19,6 @@ struct WindowTest : testing::Test {
 };
 
 TEST_F(WindowTest, ConstructorZero) {
-  EXPECT_EQ(1, window->get_width());
-  EXPECT_EQ(1, window->get_height());
+  EXPECT_EQ(100, window->get_width());
+  EXPECT_EQ(100, window->get_height());
 }
