@@ -16,7 +16,8 @@ Window::Window(int screen_width, int screen_height, int screen_fps) :
 
 	// initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO /*|SDL_INIT_AUDIO*/) != 0) {
-		cerr << "Error initializing SDL" << endl;
+		cerr << "Error initializing SDL: " << SDL_GetError() << endl;
+		SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
 		exit(1);
 	}
 
