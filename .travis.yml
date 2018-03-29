@@ -62,7 +62,8 @@ script:
   - make
   - cmake -DBUILD_TESTS=ON -DCOVERAGE=ON ..
   - make
-  - cd tests && ./test_window
+  - cd tests
+  - xvfb-run ./test_window
 
 after_success:
   - coveralls --root ${TRAVIS_BUILD_DIR}/src -E ".*gtest.*" -E ".*CMakeFiles.*" --gcov-options '\-lp'
